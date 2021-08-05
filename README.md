@@ -8,6 +8,13 @@ I want to decide a city to take a vacation to based on popular restuarants, hote
 * Abby: API function calls 
 * Katy: connecting JS to HTML
 
+## Technology Stack
+* HTML
+* CSS
+* CSS Animations
+* JavaScript
+* CSS Framework: Tailwind
+
 ## Server Side APIs
 * Yelp Fusion
 * Back4App US States & Capitals
