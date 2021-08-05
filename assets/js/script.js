@@ -18,7 +18,6 @@ var getRecipe = function(food) {
     
     fetch(apiCall).then(function(response) {
         response.json().then(function(data){
-            console.log(data.hits);
 
             // get the name of a recipe
             recipeName = data.hits[recipeNum].recipe.label;
@@ -35,40 +34,49 @@ var getRecipe = function(food) {
             // get the link to the full recipe
             recipeUrl = data.hits[recipeNum].recipe.url;
             console.log(recipeUrl);
-        }).then(getNutrition(recipeName))
+        }).then(getNutrition);
     })
 }
 
 // function to get nutrition facts for recipe
-var getNutrition = function(recipe) {
-    console.log("getting nutrition: " + recipe);
+var getNutrition = function() {
 
-    const apiCall = "https://api.edamam.com/api/nutrition-data?app_id=c15e6a0d&app_key=4fab285b283f1834189d7b315b26dbd6&nutrition-type=cooking&ingr=2%20pieces%20chicken%20breasts"
+    let searchCode = "";
 
-    fetch(apiCall).then(function(response) {
-        response.json().then(function(data){
-            console.log(data);
+    // get nutrition for each ingredient & add to totals
+    for(var i=0; i<ingredients.length; i++) {
+        searchCode = ingredients[i];
+        // replace spaces with %20 for the API Call
+        for(var i=0; i<searchCode.length; i++) {
+            searchCode = searchCode.replace(" ", "%20");
+        
+        // request nutrition info from API for ingredient
+        let apiCall = "https://api.edamam.com/api/nutrition-data?app_id=c15e6a0d&app_key=4fab285b283f1834189d7b315b26dbd6&nutrition-type=cooking&ingr=" + searchCode;
 
-            console.log(data.totalNutrients.CHOCDF.quantity);
+        fetch(apiCall).then(function(response) {
+            response.json().then(function(data){
+                console.log(data);
+    
+                // add ingredient calories to total
+                calories += data.calories;
+                console.log("Calories: " + calories);
+    
+                // add ingredient fat to total
+                fat += Math.floor(data.totalNutrients.FAT.quantity);
+                console.log("Fat: " + fat + data.totalNutrients.FAT.unit);
+    
+                // add ingredient protein to total
+                protein += Math.floor(data.totalNutrients.PROCNT.quantity);
+                console.log("Protein: " + protein + data.totalNutrients.PROCNT.unit)
+    
+                // add ingredient carbs to total
+                carbs += Math.floor(data.totalNutrients.CHOCDF.quantity);
+                console.log("Carbs: " + carbs + data.totalNutrients.CHOCDF.unit)
 
-            // add ingredient calories to total
-            calories += data.calories;
-            console.log("Calories: " + calories);
-
-            // add ingredient fat to total
-            fat += Math.floor(data.totalNutrients.FAT.quantity);
-            console.log("Fat: " + fat + data.totalNutrients.FAT.unit);
-
-            // add ingredient protein to total
-            protein += Math.floor(data.totalNutrients.PROCNT.quantity);
-            console.log("Protein: " + protein + data.totalNutrients.PROCNT.unit)
-
-            // add ingredient carbs to total
-            carbs += Math.floor(data.totalNutrients.CHOCDF.quantity);
-            console.log("Carbs: " + carbs + data.totalNutrients.CHOCDF.unit)
-
+            })
         })
-    })
+    }
+    }
 }
 
 getRecipe("chicken");
