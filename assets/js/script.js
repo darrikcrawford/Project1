@@ -5,5 +5,5 @@ var getCity = function() {
 
 // function to get highest rated restaurant in given city from Yelp
 var getRestaurant = function(city) {
-    
+
 }
