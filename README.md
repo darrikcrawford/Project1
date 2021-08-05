@@ -1,4 +1,4 @@
-# Project1
+# Project 1
 
 ## User Story
 I want to decide a city to take a vacation to based on popular restuarants, hotels, and attractions. 
