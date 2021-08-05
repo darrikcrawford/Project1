@@ -3,6 +3,11 @@ let recipeImg = "";
 let ingredients = [];
 let recipeUrl = "";
 
+let calories = 0;
+let fat = 0;
+let protein = 0;
+let carbs = 0;
+
 // function to get recipe based on food input
 var getRecipe = function(food) {
 
@@ -30,13 +35,40 @@ var getRecipe = function(food) {
             // get the link to the full recipe
             recipeUrl = data.hits[recipeNum].recipe.url;
             console.log(recipeUrl);
-        })
+        }).then(getNutrition(recipeName))
     })
 }
 
 // function to get nutrition facts for recipe
 var getNutrition = function(recipe) {
     console.log("getting nutrition: " + recipe);
+
+    const apiCall = "https://api.edamam.com/api/nutrition-data?app_id=c15e6a0d&app_key=4fab285b283f1834189d7b315b26dbd6&nutrition-type=cooking&ingr=2%20pieces%20chicken%20breasts"
+
+    fetch(apiCall).then(function(response) {
+        response.json().then(function(data){
+            console.log(data);
+
+            console.log(data.totalNutrients.CHOCDF.quantity);
+
+            // add ingredient calories to total
+            calories += data.calories;
+            console.log("Calories: " + calories);
+
+            // add ingredient fat to total
+            fat += Math.floor(data.totalNutrients.FAT.quantity);
+            console.log("Fat: " + fat + data.totalNutrients.FAT.unit);
+
+            // add ingredient protein to total
+            protein += Math.floor(data.totalNutrients.PROCNT.quantity);
+            console.log("Protein: " + protein + data.totalNutrients.PROCNT.unit)
+
+            // add ingredient carbs to total
+            carbs += Math.floor(data.totalNutrients.CHOCDF.quantity);
+            console.log("Carbs: " + carbs + data.totalNutrients.CHOCDF.unit)
+
+        })
+    })
 }
 
 getRecipe("chicken");
