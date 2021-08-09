@@ -4,28 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>What's For Dinner?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>What's For Dinner?</h1>
+    <header class="block">
+        <div class="hero is-info">
+            <div class="hero-body">
+                <h1 class="title">What's For Dinner?</h1>
+            </div>
+        </div>
     </header>
-    <section class="section-field">
-        <h2 class="section-title">Entree Type</h2>
-        <ul class="entre options"></ul> 
-    </section>
-    <section class="section-field">
-        <h2 class="section-title">Recipe</h2>
-        <ul class="recipe"></ul>
-    </section>
-    <section class="section-field">
-        <h2 class="section-title">Nutrition Facts</h2>
-         <ul class="nutrition-info"></ul>
-    </section>
+
+    <div class="container block">
+        <h2 class="notification is-size-5 has-text-centered">Entree Type</h2>
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <button class="button is-info is-outlined">Chicken</button>
+                </div>
+                <div class="column has-text-centered">
+                    <button class="button is-info is-outlined">Beef</button>
+                </div>
+                <div class="column has-text-centered">
+                    <button class="button is-info is-outlined">Veggie</button>
+                </div>
+            </div>
+    </div> 
+            
+    <div class="container block">
+        <div class="columns">
+            <div class="column is-card">
+                <h2 class="notification is-size-5">Recipe</h2>
+                <ul class=""></ul>
+            </div>
+            <div class="column">
+                <h2 class="notification is-size-5">Nutrition Facts</h2>
+                <ul class=""></ul>
+            </div>
+        </div>
+    </div>
+   
     
-    <footer>
-        Built by Group 5
+    <footer class="block"> 
+        <div class="footer has-text-centered">
+            <p><strong>Created By Group 5</strong></p>
+        </div>
     </footer>
 </body>
 </html>
