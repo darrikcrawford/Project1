@@ -11,9 +11,8 @@ I want to decide a city to take a vacation to based on popular restuarants, hote
 ## Technology Stack
 * HTML
 * CSS
-* CSS Animations
 * JavaScript
-* CSS Framework: Tailwind
+* CSS Framework: Bulma
 
 ## Server Side APIs
 * Yelp Fusion
