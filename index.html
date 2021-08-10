@@ -11,7 +11,7 @@
 </head>
 <body>    
     <header class="block">
-        <div class="hero is-info">
+        <div class="hero is-primary">
             <div class="hero-body">
                 <h1 class="title">What's For Dinner?</h1>
             </div>
@@ -22,13 +22,19 @@
         <h2 class="notification is-size-5 has-text-centered">Entree Type</h2>
             <div class="columns">
                 <div class="column has-text-centered">
-                    <button class="button is-info is-outlined">Chicken</button>
+                    <button id="chicken" class="button is-primary is-outlined">Chicken</button>
                 </div>
                 <div class="column has-text-centered">
-                    <button class="button is-info is-outlined">Beef</button>
+                    <button id="beef" class="button is-primary is-outlined">Beef</button>
                 </div>
                 <div class="column has-text-centered">
-                    <button class="button is-info is-outlined">Veggie</button>
+                    <button id="pork" class="button is-primary is-outlined">Pork</button>
+                </div>
+                <div class="column has-text-centered">
+                    <button id="vegitarian" class="button is-primary is-outlined">Vegitarian</button>
+                </div>
+                <div class="column has-text-centered">
+                    <button id="fish" class="button is-primary is-outlined">Fish</button>
                 </div>
             </div>
     </div> 
@@ -38,13 +44,13 @@
             <div class="column is-card">
                 <h2 class="notification is-size-5 has-text-centered">Recipe</h2>
                 <div class="box">
-                    <p id="recipe-box" class="recipe-box p-1"></p>
+                    <p id="recipe-box" class="p-3"></p>
                 </div>
             </div>
             <div class="column">
                 <h2 class="notification is-size-5 has-text-centered">Nutrition Facts</h2>
                 <div class="box">
-                    <p id="nutrition-box" class="p-1"></p>
+                    <p id="nutrition-box" class="p-3"></p>
                 </div>
             </div>
         </div>
