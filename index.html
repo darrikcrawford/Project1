@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's For Dinner?</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    
 </head>
 <body>    
     <header class="block">
@@ -22,13 +25,13 @@
         <h2 class="notification is-size-5 has-text-centered">Entree Type</h2>
             <div class="columns">
                 <div class="column has-text-centered">
-                    <button class="button is-info is-outlined">Chicken</button>
+                    <button id="chickenBtn" class="button is-info is-outlined">Chicken</button>
                 </div>
                 <div class="column has-text-centered">
-                    <button class="button is-info is-outlined">Beef</button>
+                    <button id="Beefbtn" class="button is-info is-outlined">Beef</button>
                 </div>
                 <div class="column has-text-centered">
-                    <button class="button is-info is-outlined">Veggie</button>
+                    <button id="veggieBtn" class="button is-info is-outlined">Veggie</button>
                 </div>
             </div>
     </div> 
@@ -38,13 +41,27 @@
             <div class="column is-card">
                 <h2 class="notification is-size-5 has-text-centered">Recipe</h2>
                 <div class="box mt-3 column-tall">
-                    <p class="recipe-box p-1"></p>
+                    <p id="recipeP" class="recipe-box p-1"> 
+                    <!--Header to hold recipe name / This way we can edit the H2 to be larger-->
+                        <h2 id="rName"> </h2>
+                    <!-- Need to add image here-->
+                        <img id="rImage" src="">
+                    <!--Add ingrediants from ingrediants Array-->
+                    <ul id=recipeList>
+                        <li>Test</li>
+                        <li>Test</li>
+                        <li>Test</li>
+                    </ul>
+                    <!---Link to the URL to see the entire recipe/ Can edit the CSS for this as well to look nicer if wanted-->
+                    <a id="recipeLink" href=""> </a>
+                    </p>
+                    
                 </div>
             </div>
             <div class="column">
                 <h2 class="notification is-size-5 has-text-centered">Nutrition Facts</h2>
                 <div class="box mt-3 column-tall">
-                    <p class="nutrition-box p-1"></p>
+                    <p class="nutrition-box p-1"> <h2 class="nFacts"> </h2> </p>
                 </div>
             </div>
         </div>

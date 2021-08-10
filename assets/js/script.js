@@ -8,6 +8,7 @@ let fat = 0;
 let protein = 0;
 let carbs = 0;
 
+
 // function to get recipe based on food input
 var getRecipe = function(food) {
 
@@ -21,21 +22,33 @@ var getRecipe = function(food) {
 
             // get the name of a recipe
             recipeName = data.hits[recipeNum].recipe.label;
-            console.log(recipeName);
+        
+            //Adds recipe name to H2 tag when clicked
+            $("#chickenBtn").on("click", function () {
+                $("#rName").text(recipeName);
+            
 
             // get the link to a picture of the recipe
             recipeImg = data.hits[recipeNum].recipe.image;
+            //Get picture to show up using ???
+            $("#rImage").html(recipeImg);
             console.log(recipeImg);
 
             // get an array list of the recipe ingredients
             ingredients = data.hits[recipeNum].recipe.ingredientLines;
-            console.log(ingredients)
+            //Somehow append array to recipeList / Researching
+            console.log(ingredients);
 
-            // get the link to the full recipe
+            
+          // get the link to the full recipe
             recipeUrl = data.hits[recipeNum].recipe.url;
+         // Add link to bottom of the box for people to click on
+            $("#recipeLink").html(recipeUrl);
+
             console.log(recipeUrl);
         }).then(getNutrition);
     })
+})
 }
 
 // function to get nutrition facts for recipe
