@@ -14,7 +14,7 @@
 </head>
 <body>    
     <header class="block">
-        <div class="hero is-info">
+        <div class="hero is-primary">
             <div class="hero-body">
                 <h1 class="title">What's For Dinner?</h1>
             </div>
@@ -25,13 +25,19 @@
         <h2 class="notification is-size-5 has-text-centered">Entree Type</h2>
             <div class="columns">
                 <div class="column has-text-centered">
-                    <button id="chickenBtn" class="button is-info is-outlined">Chicken</button>
+                    <button id="chickenBtn" class="button is-primary is-outlined">Chicken</button>
                 </div>
                 <div class="column has-text-centered">
-                    <button id="Beefbtn" class="button is-info is-outlined">Beef</button>
+                    <button id="beefBtn" class="button is-primary is-outlined">Beef</button>
                 </div>
                 <div class="column has-text-centered">
-                    <button id="veggieBtn" class="button is-info is-outlined">Veggie</button>
+                    <button id="porkBtn" class="button is-primary is-outlined">Pork</button>
+                </div>
+                <div class="column has-text-centered">
+                    <button id="vegitarianBtn" class="button is-primary is-outlined">Vegitarian</button>
+                </div>
+                <div class="column has-text-centered">
+                    <button id="fishBtn" class="button is-primary is-outlined">Fish</button>
                 </div>
             </div>
     </div> 
@@ -60,8 +66,8 @@
             </div>
             <div class="column">
                 <h2 class="notification is-size-5 has-text-centered">Nutrition Facts</h2>
-                <div class="box mt-3 column-tall">
-                    <p class="nutrition-box p-1"> <h2 class="nFacts"> </h2> </p>
+                <div class="box">
+                    <p id="nutrition-box" class="p-3"></p>
                 </div>
             </div>
         </div>
