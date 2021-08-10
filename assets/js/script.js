@@ -43,12 +43,21 @@ var getNutrition = function() {
 
     let searchCode = "";
 
+    // make ingredients search friendly
+    for(var i=0; i<ingredients.length; i++) {
+        console.log(ingredients[i]);
+        let ingrClean = ingredients[i].split("(",1);
+        let ingrClean2 = ingrClean[0].split(",",1);
+       
+        ingredients[i] = ingrClean2[0];
+
+        ingredients[i] = ingredients[i].replace(/\s/g, "%20");
+    }
+
     // get nutrition for each ingredient & add to totals
     for(var i=0; i<ingredients.length; i++) {
         searchCode = ingredients[i];
-        // replace spaces with %20 for the API Call
-        for(var i=0; i<searchCode.length; i++) {
-            searchCode = searchCode.replace(" ", "%20");
+        console.log(searchCode);
         
         // request nutrition info from API for ingredient
         let apiCall = "https://api.edamam.com/api/nutrition-data?app_id=c15e6a0d&app_key=4fab285b283f1834189d7b315b26dbd6&nutrition-type=cooking&ingr=" + searchCode;
@@ -75,7 +84,6 @@ var getNutrition = function() {
 
             })
         })
-    }
     }
 }
 
