@@ -30,20 +30,22 @@ var getRecipe = function(food) {
 
             // get the link to a picture of the recipe
             recipeImg = data.hits[recipeNum].recipe.image;
-            //Get picture to show up using ???
-            $("#rImage").html(recipeImg);
+            //Get picture to show up 
+            $("#rImage").html('<img src="' + recipeImg + '">');
             console.log(recipeImg);
 
             // get an array list of the recipe ingredients
             ingredients = data.hits[recipeNum].recipe.ingredientLines;
             //Somehow append array to recipeList / Researching
+          $("#recipeList").html("<li>" + ingredients + "</li>");
+
             console.log(ingredients);
 
             
           // get the link to the full recipe
             recipeUrl = data.hits[recipeNum].recipe.url;
          // Add link to bottom of the box for people to click on
-            $("#recipeLink").html(recipeUrl);
+            $("#recipeLink").html('<a href="' + recipeUrl + '" target="_blank">Click here to view full recipe</a>');
 
             console.log(recipeUrl);
         }).then(getNutrition);

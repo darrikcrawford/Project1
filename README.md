@@ -4,14 +4,15 @@
 I want to find a new recipe based on the main ingredient I have & be able to see nutrition information for the recipe. 
 
 ## Tasks and Roles
-* Darrik: front-end
+* Darrik: Front-end
 * Abby: API function calls 
-* Katy: connecting JS to HTML
+* Katy: Connecting JS to HTML
 
 ## Technology Stack
 * HTML
 * CSS
 * JavaScript
+* JQuery
 * CSS Framework: Bulma
 
 ## Server Side APIs
