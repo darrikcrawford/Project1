@@ -20,3 +20,6 @@ I want to find a new recipe based on the main ingredient I have & be able to see
 
 ## GitHub Repo Link
 https://github.com/darrikcrawford/Project1/
+
+## Live Page Link
+https://darrikcrawford.github.io/Project1/
