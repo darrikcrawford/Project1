@@ -1,7 +1,7 @@
 # Project 1
 
 ## User Story
-I want to decide a city to take a vacation to based on popular restuarants, hotels, and attractions. 
+I want to find a new recipe based on the main ingredient I have & be able to see nutrition information for the recipe. 
 
 ## Tasks and Roles
 * Darrik: front-end
@@ -15,8 +15,8 @@ I want to decide a city to take a vacation to based on popular restuarants, hote
 * CSS Framework: Bulma
 
 ## Server Side APIs
-* Yelp Fusion
-* Back4App US States & Capitals
+* Edamam Recipe finder
+* Edamam nutrition search
 
 ## GitHub Repo Link
 https://github.com/darrikcrawford/Project1/
