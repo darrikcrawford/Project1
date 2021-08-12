@@ -26,7 +26,6 @@ var getRecipe = function(food) {
             //Adds recipe name to H2 tag when clicked
             $("#chickenBtn").on("click", function () {
                 $("#rName").text(recipeName);
-            
 
             // get the link to a picture of the recipe
             recipeImg = data.hits[recipeNum].recipe.image;
