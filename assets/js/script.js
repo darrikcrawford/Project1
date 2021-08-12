@@ -1,3 +1,11 @@
+var chickenBtnEl = document.querySelector("#chickenBtn");
+var beefBtnEl = document.querySelector("#beefBtn");
+var porkBtnEl = document.querySelector("#porkBtn");
+var fishBtnEl = document.querySelector("#fishBtn");
+var veggieBtnEl = document.querySelector("#vegetarianBtn");
+var recipeNameEl = document.querySelector("#rName");
+var recipeImgEl = document.querySelector("#rImage");
+
 let recipeName = "";
 let recipeImg = "";
 let ingredients = [];
@@ -10,7 +18,10 @@ let carbs = 0;
 
 
 // function to get recipe based on food input
-var getRecipe = function(food) {
+var getRecipe = function(event) {
+    event.preventDefault();
+
+    var food = event.target.textContent;
 
     const apiCall = "https://api.edamam.com/api/recipes/v2?type=public&q=" + food + "&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7"
 
@@ -24,32 +35,30 @@ var getRecipe = function(food) {
             recipeName = data.hits[recipeNum].recipe.label;
         
             //Adds recipe name to H2 tag when clicked
-            $("#chickenBtn").on("click", function () {
-                $("#rName").text(recipeName);
+            recipeNameEl.textContent = recipeName;
 
             // get the link to a picture of the recipe
             recipeImg = data.hits[recipeNum].recipe.image;
-            //Get picture to show up 
+            
+            //Get picture to show up
             $("#rImage").html('<img src="' + recipeImg + '">');
-            console.log(recipeImg);
 
             // get an array list of the recipe ingredients
             ingredients = data.hits[recipeNum].recipe.ingredientLines;
-
-            //Somehow append array to recipeList / Researching
-            $("#recipeList").html("<li>" + ingredients + "</li>");
-          
-
             console.log(ingredients);
 
+            //Somehow append array to recipeList / Researching
+            for(var i=0; i<ingredients.length; i++) {
+                console.log(ingredients[i]);
+                $("#recipeList").append("<li>" + ingredients[i] + "</li>");
+            }
             
-          // get the link to the full recipe
+            // get the link to the full recipe
             recipeUrl = data.hits[recipeNum].recipe.url;
-         // Add link to bottom of the box for people to click on
-            $("#recipeLink").html('<a href="' + recipeUrl + '" target="_blank">Click here to view full recipe</a>');
 
-            console.log(recipeUrl);
-        }).then(getNutrition);
+            // Add link to bottom of the box for people to click on
+            $("#recipeLink").html('<a href="' + recipeUrl + '">Click here to view full recipe</a>')
+        .then(getNutrition);
     })
 })
 }
@@ -103,4 +112,8 @@ var getNutrition = function() {
     }
 }
 
-getRecipe("chicken");
+chickenBtnEl.addEventListener("click", getRecipe);
+porkBtnEl.addEventListener("click", getRecipe);
+beefBtnEl.addEventListener("click", getRecipe);
+fishBtnEl.addEventListener("click", getRecipe);
+veggieBtnEl.addEventListener("click", getRecipe);
