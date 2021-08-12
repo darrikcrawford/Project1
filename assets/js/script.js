@@ -9,12 +9,6 @@ let recipeImg = "";
 let ingredients = [];
 let recipeUrl = "";
 
-let calories = 0;
-let fat = 0;
-let protein = 0;
-let carbs = 0;
-
-
 // function to get recipe based on food input
 var getRecipe = function(event) {
     event.preventDefault();
@@ -67,10 +61,10 @@ var getRecipe = function(event) {
 var getNutrition = function(recipe) {
 
     // reset nutrition values
-    calories = 0;
-    carbs = 0;
-    protein = 0;
-    fat = 0;
+    let calories = 0;
+    let carbs = 0;
+    let protein = 0;
+    let fat = 0;
 
     let searchCode = "";
 
