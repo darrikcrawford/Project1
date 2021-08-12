@@ -3,8 +3,6 @@ var beefBtnEl = document.querySelector("#beefBtn");
 var porkBtnEl = document.querySelector("#porkBtn");
 var fishBtnEl = document.querySelector("#fishBtn");
 var veggieBtnEl = document.querySelector("#vegetarianBtn");
-var recipeNameEl = document.querySelector("#rName");
-var recipeImgEl = document.querySelector("#rImage");
 
 let recipeName = "";
 let recipeImg = "";
@@ -21,7 +19,7 @@ let carbs = 0;
 var getRecipe = function(event) {
     event.preventDefault();
 
-    var food = event.target.textContent;
+    const food = event.target.textContent;
 
     const apiCall = "https://api.edamam.com/api/recipes/v2?type=public&q=" + food + "&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7"
 
@@ -31,11 +29,14 @@ var getRecipe = function(event) {
     fetch(apiCall).then(function(response) {
         response.json().then(function(data){
 
+            console.log(data.hits[recipeNum].recipe);
+            console.log(data.hits[recipeNum].recipe.ingredientLines);
+
             // get the name of a recipe
             recipeName = data.hits[recipeNum].recipe.label;
         
             //Adds recipe name to H2 tag when clicked
-            recipeNameEl.textContent = recipeName;
+            $("#rName").text(recipeName);
 
             // get the link to a picture of the recipe
             recipeImg = data.hits[recipeNum].recipe.image;
@@ -65,7 +66,11 @@ var getRecipe = function(event) {
 // function to get nutrition facts for recipe
 var getNutrition = function(recipe) {
 
-    console.log("getNutrition running!" + recipe);
+    // reset nutrition values
+    calories = 0;
+    carbs = 0;
+    protein = 0;
+    fat = 0;
 
     let searchCode = "";
 
@@ -88,26 +93,21 @@ var getNutrition = function(recipe) {
 
         fetch(apiCall).then(function(response) {
             response.json().then(function(data){
-                console.log(data);
     
                 // add ingredient calories to total
                 calories += data.calories;
-                console.log("Calories: " + calories);
                 $('#calories-box').text('Total Calories: ' + calories);
     
                 // add ingredient fat to total
                 fat += Math.floor(data.totalNutrients.FAT.quantity);
-                console.log("Fat: " + fat + data.totalNutrients.FAT.unit);
                 $('#fat-box').text('Total Fat: ' + fat);
     
                 // add ingredient protein to total
                 protein += Math.floor(data.totalNutrients.PROCNT.quantity);
-                console.log("Protein: " + protein + data.totalNutrients.PROCNT.unit);
                 $('#protein-box').text('Total Protein: ' + protein);
     
                 // add ingredient carbs to total
                 carbs += Math.floor(data.totalNutrients.CHOCDF.quantity);
-                console.log("Carbs: " + carbs + data.totalNutrients.CHOCDF.unit)
                 $('#carbs-box').text('Total Carbs: ' + carbs);
 
             })
