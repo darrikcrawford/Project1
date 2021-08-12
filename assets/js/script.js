@@ -38,7 +38,7 @@ var getRecipe = function(food) {
             ingredients = data.hits[recipeNum].recipe.ingredientLines;
 
             //Somehow append array to recipeList / Researching
-            $("#recipeList").html("<li>" + ingredients[i] + "</li>");
+            $("#recipeList").html("<li>" + ingredients + "</li>");
           
 
             console.log(ingredients);
