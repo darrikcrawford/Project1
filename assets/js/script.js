@@ -88,26 +88,31 @@ var getNutrition = function(recipe) {
         fetch(apiCall).then(function(response) {
             response.json().then(function(data){
     
+                console.log(data);
+
                 // add ingredient calories to total
                 calories += data.calories;
-                $('#calories-box').text('Total Calories: ' + calories);
+                $('#calories-box').html('<b>Total Calories:</b> ' + calories);
     
                 // add ingredient fat to total
                 fat += Math.floor(data.totalNutrients.FAT.quantity);
-                $('#fat-box').text('Total Fat: ' + fat);
+                $('#fat-box').html('<b>Total Fat:</b> ' + fat);
     
                 // add ingredient protein to total
                 protein += Math.floor(data.totalNutrients.PROCNT.quantity);
-                $('#protein-box').text('Total Protein: ' + protein);
+                $('#protein-box').html('<b>Total Protein:</b> ' + protein);
     
                 // add ingredient carbs to total
                 carbs += Math.floor(data.totalNutrients.CHOCDF.quantity);
-                $('#carbs-box').text('Total Carbs: ' + carbs);
+                $('#carbs-box').html('<b>Total Carbs:</b> ' + carbs);
+
+
 
             })
         })
     }
 }
+
 
 chickenBtnEl.addEventListener("click", getRecipe);
 porkBtnEl.addEventListener("click", getRecipe);
