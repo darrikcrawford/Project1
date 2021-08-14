@@ -106,8 +106,6 @@ var getNutrition = function(recipe) {
                 carbs += Math.floor(data.totalNutrients.CHOCDF.quantity);
                 $('#carbs-box').html('<b>Total Carbs:</b> ' + carbs);
 
-
-
             })
         })
     }
