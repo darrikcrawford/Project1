@@ -7,6 +7,9 @@ var veggieBtnEl = document.querySelector("#vegetarianBtn");
 
 //Health button queryselector
 var healthBtnEl = document.querySelector("#healthBtn");
+var ketohealthBtnEl = document.querySelector("#ketohealthBtn");
+var veganhealthBtnEl = document.querySelector("#veganhealthBtn");
+var paleohealthBtnEl = document.querySelector("#paleohealthBtn");
 
 let recipeName = "";
 let recipeImg = "";
@@ -121,7 +124,13 @@ var getNutrition = function(recipe) {
 var getHealthRecipe = function(event) {
     event.preventDefault();
 
-    const apiCall = "https://api.edamam.com/search?q=&health=immuno-supportive&from=0&to=99&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7&from=0&to=99"
+    // const diet = event.target.textContent;
+    let diet = $(this).attr('data-input');
+    console.log(diet);
+
+    const apiCall = 'https://api.edamam.com/search?q=&health='  + diet + '&from=0&to=99&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7&from=0&to=99'
+
+    // const apiCall = "https://api.edamam.com/search?q=&health=immuno-supportive&from=0&to=99&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7&from=0&to=99"
 
         // get an index for a random recipe
         const recipeNum = Math.floor(Math.random()*20);
@@ -168,6 +177,9 @@ var getHealthRecipe = function(event) {
 
 //Health diet button even listener
 healthBtnEl.addEventListener("click", getHealthRecipe);
+ketohealthBtnEl.addEventListener("click", getHealthRecipe);
+veganhealthBtnEl.addEventListener("click", getHealthRecipe);
+paleohealthBtnEl.addEventListener("click", getHealthRecipe);
 
 chickenBtnEl.addEventListener("click", getRecipe);
 porkBtnEl.addEventListener("click", getRecipe);
