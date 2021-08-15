@@ -11,8 +11,9 @@ let recipeUrl = "";
 
 // function to get recipe based on food input
 var getRecipe = function(event) {
+    
     event.preventDefault();
-
+    ingredients = [];
     const food = event.target.textContent;
 
     const apiCall = "https://api.edamam.com/api/recipes/v2?type=public&q=" + food + "&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7"
@@ -74,7 +75,6 @@ var getNutrition = function(recipe) {
         let ingrClean2 = ingrClean[0].split(",",1);
        
         ingredients[i] = ingrClean2[0];
-
         ingredients[i] = ingredients[i].replace(/\s/g, "%20");
     }
 
