@@ -80,7 +80,7 @@ var getNutrition = function(recipe) {
 
     // make ingredients search friendly
     for(var i=0; i<ingredients.length; i++) {
-        let ingrClean = ingredients[i].split("(",1);
+        let ingrClean = ingredients[i].replace(/ *\([^)]*\) */g, "");
         let ingrClean2 = ingrClean[0].split(",",1);
        
         ingredients[i] = ingrClean2[0];
