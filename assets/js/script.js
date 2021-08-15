@@ -13,10 +13,10 @@ let recipeImg = "";
 let ingredients = [];
 let recipeUrl = "";
 
-// function to get recipe based on food input
+/// function to get recipe based on food input
 var getRecipe = function(event) {
     event.preventDefault();
-    let ingredients = [];
+
     const food = event.target.textContent;
 
     const apiCall = "https://api.edamam.com/api/recipes/v2?type=public&q=" + food + "&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7"
@@ -26,8 +26,6 @@ var getRecipe = function(event) {
     
     fetch(apiCall).then(function(response) {
         response.json().then(function(data){
-
-            console.log(data);
 
             console.log(data.hits[recipeNum].recipe);
             console.log(data.hits[recipeNum].recipe.ingredientLines);
@@ -48,14 +46,11 @@ var getRecipe = function(event) {
             ingredients = data.hits[recipeNum].recipe.ingredientLines;
 
             $("#recipeList").empty();
-              // append each ingredient as an li
+            // append each ingredient as an li
             for(var i=0; i<ingredients.length; i++) {
-                $("#recipeList").append('<li>' + ingredients[i] + '</li>');
-            };
-
-
-
-
+                $("#recipeList").append("<li>" + ingredients[i] + "</li>");
+            }
+            
             // get the link to the full recipe
             recipeUrl = data.hits[recipeNum].recipe.url;
 
@@ -66,6 +61,7 @@ var getRecipe = function(event) {
     })
 })
 }
+
 
 // function to get nutrition facts for recipe
 var getNutrition = function(recipe) {
