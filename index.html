@@ -16,14 +16,17 @@
     <header class="block">
         <div class="hero is-primary">
             <div class="hero-body">
-                <h1 class="title">What's For Dinner?</h1>
+                <h1 class="title has-text-centered">What's For Dinner?</h1>
             </div>
         </div>
     </header>
 
     <div class="container block">
-        <h2 class="notification is-size-5 has-text-centered">Entree Type</h2>
+        <div class= "columns">
+            <div class="column">
+                <h2 class="notification is-size-5 has-text-centered has-text-weight-semibold has-background-dark has-text-white-bis">Search by Entree Type</h2>
             <div id="btns" class="columns">
+                <div class="column"></div>
                 <div class="column has-text-centered">
                     <button id="chickenBtn" class="button is-primary is-outlined">Chicken</button>
                 </div>
@@ -39,13 +42,38 @@
                 <div class="column has-text-centered">
                     <button id="fishBtn" class="button is-primary is-outlined">Fish</button>
                 </div>
+                <div class="column"></div>
+            </div>
+        </div>
+        
+        
+
+                <div class="column">
+                    <h2 class="notification is-size-5 has-text-centered has-text-weight-semibold has-background-dark has-text-white-bis">Search By Diet</h2>
+        <div id=extrabtns class="columns">
+            <div class="column"></div>
+            <div class="column has-text-centered">
+                <button id="healthBtn" class="button is-primary is-outlined" data-input="immuno-supportive">Immuno-Supportive</button>
+            </div>
+            <div class="column has-text-centered">
+                <button id="ketohealthBtn" class="button is-primary is-outlined" data-input="keto-friendly">Keto-Friendly</button>
+            </div>
+            <div class="column has-text-centered">
+                <button id="paleohealthBtn" class="button is-primary is-outlined" data-input="paleo">Paleo</button>
+            </div>
+            <div class="column has-text-centered">
+                <button id="veganhealthBtn" class="button is-primary is-outlined" data-input="vegan">Vegan</button>
+            </div>
+            <div class="column"></div>
+                </div>
+                </div>
             </div>
     </div> 
             
     <div class="container block">
         <div class="columns">
             <div class="column">
-                <h2 class="notification is-size-5 has-text-centered">Recipe</h2>
+                <h2 class="notification is-size-5 has-text-centered has-text-weight-semibold">Recipe</h2>
                 <div class="box mt-3 column-tall">
                     <p id="recipeP" class="recipe-box p-1"> 
                     <!--Header to hold recipe name / This way we can edit the H2 to be larger-->
@@ -64,7 +92,7 @@
                 </div>
             </div>
             <div class="column">
-                <h2 class="notification is-size-5 has-text-centered">Nutrition Facts</h2>
+                <h2 class="notification is-size-5 has-text-centered has-text-weight-semibold">Nutrition Facts</h2>
                 <div class="box">
                     <p id="calories-box" class="p-3"></p>
                     <p id="carbs-box" class="p-3"></p>
@@ -76,26 +104,7 @@
     </div>
    
 
-    <div class="container block">
-        <div id=extrabtns class="columns">
-            <div class="column has-text-centered">
-                <button id="healthBtn" class="button is-primary is-outlined" data-input="immuno-supportive">Immuno-Supportive</button>
-            </div>
-            <div class="column has-text-centered">
-                <button id="ketohealthBtn" class="button is-primary is-outlined" data-input="keto-friendly">Keto-Friendly</button>
-            </div>
-            <div class="column has-text-centered">
-                <button id="paleohealthBtn" class="button is-primary is-outlined" data-input="paleo">Paleo</button>
-            </div>
-            <div class="column has-text-centered">
-                <button id="veganhealthBtn" class="button is-primary is-outlined" data-input="vegan">Vegan</button>
-            </div>
-                </div>
-          
-                <h2 class="notification is-size-5 has-text-centered">Search By Diet</h2>
-            
     
-    </div>
     <footer class="block"> 
         <div class="footer has-text-centered">
             <p><strong>Created By Group 5</strong></p>
