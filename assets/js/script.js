@@ -25,6 +25,7 @@ var getRecipe = function(event) {
 
     const apiCall = "https://api.edamam.com/api/recipes/v2?type=public&q=" + food + "&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7"
 
+
     // get an index for a random recipe
     const recipeNum = Math.floor(Math.random()*20);
     
@@ -92,7 +93,7 @@ var getNutrition = function(recipe) {
         searchCode = ingredients[i];
         
         // request nutrition info from API for ingredient
-        let apiCall = "https://api.edamam.com/api/nutrition-data?app_id=c15e6a0d&app_key=4fab285b283f1834189d7b315b26dbd6&nutrition-type=cooking&ingr=" + searchCode;
+        let apiCall = "https://api.edamam.com/api/nutrition-data?app_id=b55c2723&app_key=b7c8766002c86627f8b46d247d0527a4&nutrition-type=cooking&ingr=" + searchCode;
 
         fetch(apiCall).then(function(response) {
             response.json().then(function(data){
