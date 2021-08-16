@@ -23,7 +23,7 @@ var getRecipe = function(event) {
     ingredients = [];
     const food = event.target.textContent;
 
-    const apiCall = "https://api.edamam.com/api/recipes/v2?type=public&q=" + food + "&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7"
+    const apiCall = "https://api.edamam.com/api/recipes/v2?type=public&q=" + food + "&app_id=580df70a&app_key=84a0b7b41d685a57961c37d776526b43"
 
 
     // get an index for a random recipe
@@ -129,7 +129,7 @@ var getHealthRecipe = function(event) {
     let diet = $(this).attr('data-input');
     console.log(diet);
 
-    const apiCall = 'https://api.edamam.com/search?q=&health='  + diet + '&from=0&to=99&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7&from=0&to=99'
+    const apiCall = 'https://api.edamam.com/search?q=&health='  + diet + '&from=0&to=99&app_id=580df70a&app_key=84a0b7b41d685a57961c37d776526b43&from=0&to=99'
 
     // const apiCall = "https://api.edamam.com/search?q=&health=immuno-supportive&from=0&to=99&app_id=9808691f&app_key=%20ac15455f30499a61c8f7b072116879c7&from=0&to=99"
 
